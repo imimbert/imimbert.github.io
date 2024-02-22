@@ -1,0 +1,101 @@
+<html>
+	<head>
+                <meta charset="UTF-8">
+
+		<!--引入jQuery框架-->
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<!--引入jVectorMap库-->
+		<script type="text/javascript" src="js/jquery-jvectormap-1.2.2.min.js"></script>
+		<!--引入样式表-->
+		<link href="js/jquery-jvectormap-1.2.2.css" rel="stylesheet" media="screen">
+
+
+		<!--引入中国地图数据库-->
+		<!-- <script type="text/javascript" src="js/jquery-jvectormap-cn-merc-en.js"></script> -->
+
+		<!--引入美国地图数据库-->
+		<!--script type="text/javascript" src="js/jquery-jvectormap-us-aea.js"></script-->
+		<!--引入世界地图数据库-->
+		<script type="text/javascript" src="js/jquery-jvectormap-world-mill.js"></script>
+
+	</head>
+<body>
+	<!--background-color: 地图背景颜色-->
+	<div id="map" style="background-color:#87CEFA"> </div>
+	<script>
+		$('#map').vectorMap({
+
+			// 此处更改地图
+			//map: 'cn_merc_en',   // 中国地图
+			//map: 'us_aea',     // 美国地图
+			map: 'world_mill', // 世界地图
+
+
+			backgroundColor: 'transparent',
+			zoomMin: 0.9, // 鼠标缩放时的最小比例
+			zoomMax: 5.0, // 鼠标缩放时的最大比例
+			focusOn: {
+				x: 0.55,
+				y: 2,
+				scale: 0.9
+			},
+			regionStyle: {
+				initial: {
+					fill: '#e5e5e5',   // 地图颜色
+					"fill-opacity": 1, // 省份（州）是否隐藏，鼠标滑动时显示; 1：显示，2：隐藏。
+					stroke: 'none',
+					"stroke-width": 0,
+					"stroke-opacity": 1
+				},
+				hover: {
+					fill: '#ccc',  // 鼠标滑动至某省份的高亮颜色。
+					"fill-opacity": 0.8
+				},
+				selected: {
+					fill: 'yellow'
+				},
+				selectedHover: {}
+			},
+			markerStyle: {
+		        initial: {
+		            fill: '#fd8888', // 足迹位置的填充颜色
+		            stroke: '#fff'   // 足迹位置的描边颜色
+		        },
+				hover: {
+					fill: '#fd2020', // 鼠标滑动至足迹位置后的填充颜色
+					stroke: '#fff',  // 鼠标滑动至足迹位置后的描边颜色
+					"fill-opacity": 0.8
+				},
+		    },
+			markers: [ // 足迹位置
+
+				// {latLng: [经度（保留两位小数）, 纬度（保留两位小数）], name: '城市名称'},
+				// 推荐查询经纬度网站：http://www.gpsspg.com/maps.htm
+
+		        {latLng: [39.90, 116.41], name: '北京'},
+		        {latLng: [31.24, 121.50], name: '上海'},
+		        {latLng: [36.04, 120.20], name: '青岛'},
+				{latLng: [35.06, 118.32], name: '临沂'},
+				{latLng: [34.59, 119.22], name: '连云港'},
+				{latLng: [30.27, 120.15], name: '杭州'},
+				{latLng: [36.19, 117.08], name: '泰安'},
+				{latLng: [32.04, 118.78], name: '南京'},
+				{latLng: [29.71, 118.34], name: '黄山'},
+				{latLng: [29.57, 118.95], name: '千岛湖'},
+				{latLng: [40.82, 111.65], name: '内蒙古'},
+				{latLng: [40.97, 117.93], name: '承德'},
+				{latLng: [37.52, 122.12], name: '威海'},
+				{latLng: [39.13, 117.20], name: '天津'},
+				{latLng: [31.30, 120.58], name: '苏州'},
+				{latLng: [36.67, 117.00], name: '济南'},
+				{latLng: [30.00, 120.57], name: '绍兴'},
+				{latLng: [32.39, 119.42], name: '扬州'},
+				{latLng: [42.26, 118.89], name: '赤峰'},
+				{latLng: [35.68, 139.69], name: '日本-东京'},
+				{latLng: [34.69, 135.50], name: '日本-大阪'},
+				{latLng: [34.68, 135.80], name: '日本-奈良'},
+				{latLng: [35.01, 135.76], name: '日本-京都'}
+		    ]
+		});
+	</script>
+</html>

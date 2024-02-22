@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>3+4=5?————楼梯悖论</title>
+    <url>/2022/11/10/3-4-5-%E6%A5%BC%E6%A2%AF%E6%82%96%E8%AE%BA/</url>
+    <content><![CDATA[<h1 id="啥是楼梯悖论"><a href="#啥是楼梯悖论" class="headerlink" title="啥是楼梯悖论"></a>啥是楼梯悖论</h1><h2 id="楼梯悖论"><a href="#楼梯悖论" class="headerlink" title="楼梯悖论"></a>楼梯悖论</h2><p>现在有一个 3x4 的楼梯<br>要算蓝色部分和红色部分长度的总和，则红色部分为 4 ，蓝色部分为 3 ，总和为 7 。<br>现在将这个楼梯增加到 n 阶，算法不变，结果仍然为 7 。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>当 n 无限趋近正无穷时，这些台阶的长度总和仍是 7 。<br>可是，这时台阶已经趋近于一条直线，根据勾股定理 $c&#x3D;\sqrt{a^2+b^2}$，得出 $c&#x3D;5$。可是有误差可以理解，但 5 和 7的误差也太大了吧？怎么回事？</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们要计算斜边可以这样算：<br>假设有 n 阶台阶，斜边为：<br>$<br>n\times \sqrt{(\frac{3}{n})^2\times (\frac{4}{n})^2}&#x3D;5<br>$<br>也就是说，不管有多少台阶，斜边永远是 5 。</p>
+<p>很多人都觉得，这是因为折线和直线之间存在误差。但如果仅仅认识到这一步，总感觉这个问题不能得到很好的解释。比如，在用任意曲线积分求面积时，可以用无穷多的细矩形进行代替，但二者之间也是存在误差的。那为什么积分求面积就成立，而楼梯悖论就不对呢？  </p>
+<p>问题就在于无限个小误差累积起来会不会变成一个大误差。简单来说，积分求面积时的误差是两个无穷小长度的平方，即二阶无穷小。对它进行一阶无穷多次累加之后，我们得到的仍然是一阶无穷小。而对于所谓的楼梯悖论来说，它的误差是无穷小长度，即一阶无穷小，经过无穷多次累积后就可能变成一个可观的误差，所以折线不能用斜线代替。<br>如上图所示，误差面积为三角形 $Δs&#x3D;dx·dy$ 。我们令 $dy&#x3D;k·dx$ ，其中k为斜率，那么 $Δs&#x3D;k·dx$ 。因为 $dx&#x3D;L&#x2F;n$ ，所以 $Δs&#x3D;k·(L&#x2F;n)$ 。那么，把n个小误差累加起来，就得到：<br>$<br>S&#x3D;\sumΔs \leq \sum k_{max}(\frac{L}{n})^2&#x3D;k_{max}(\frac{L^2}{n})<br>$<br>所以，当n趋近于无穷时，总的误差S就趋近于零。<br>接下来，来看看楼梯悖论的误差。小直角三角形处的长度误差 $ΔL&#x3D;dx+dy-(dx+dy)^{0.5}$ 。因为 $dy&#x3D;(\frac{3}{4})\times dx$，我们就有 $ΔL&#x3D;\frac{dx}{2}$ 。同样， $dx&#x3D;\frac{4}{n}$ ，所以 $ΔL&#x3D;\frac{2}{n}$ 。那么，把n个误差累加起来，得到总误差：<br>$<br>L&#x3D;\sum ΔL&#x3D;n \times \frac{2}{n}&#x3D;2<br>$<br>所以，当n趋近于无穷时，我们不能把折线看成是斜线处理，并且它们之间的差总是等于2。</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>问题解决，如果有其他做法可以留言。</p>
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>楼梯悖论</tag>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【开发日志】 - 1 DU</title>
+    <url>/2022/11/10/%E3%80%90%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97%E3%80%91-%201%20DU/</url>
+    <content><![CDATA[<h1 id="DU-是什么？"><a href="#DU-是什么？" class="headerlink" title="DU 是什么？"></a>DU 是什么？</h1><p>DU(Developers Union, 开发者联盟)，是一个旨在激发青少年进行程序设计兴趣的非盈利性组织，由 Mdr 于2022年成立。</p>
+<h2 id="DU-的项目"><a href="#DU-的项目" class="headerlink" title="DU 的项目"></a>DU 的项目</h2><p>DU 的项目主要是 DU 官网的开发。(<a href="https://deversunion.com/">https://deversunion.com</a>)</p>
+<h1 id="开发日志"><a href="#开发日志" class="headerlink" title="开发日志"></a>开发日志</h1><h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><ol>
+<li>实现了基本的网站主页，可以展示个人团队信息，活动、比赛、博客等信息，实现了动态页脚。</li>
+<li>实现了个人主页。展示 ID、团队、个性签名、年龄、贡献指数(类github)、博客、头像等信息。</li>
+<li>实现了登陆注册，可以和后端交互。</li>
+</ol>
+<h2 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h2><ol>
+<li>实现了登陆注册，可以正常与前端交互，完成注册、发送验证邮件、登录等操作步骤。</li>
+<li>实现了上传博客，上传md文件，保存信息到数据库并解析(未做解析)</li>
+<li>实现了删除博客</li>
+</ol>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ol>
+<li>后端与前端交互完成个人主页。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>开发日志</tag>
+        <tag>Developers Union</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>面积最大问题</title>
+    <url>/2023/11/11/%E9%9D%A2%E7%A7%AF%E6%9C%80%E5%A4%A7%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天无聊翻电脑里文件，发现了小升初的时候初中给布置的的数学作业，也就是下面这篇文章，于是把它贴出来了。(当时对一些概念不太清楚，所以可能有错误)</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="怎样得到一个面积最大的图形？"><a href="#怎样得到一个面积最大的图形？" class="headerlink" title="怎样得到一个面积最大的图形？"></a>怎样得到一个面积最大的图形？</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><ul>
+<li>一根长40cm的绳子，如果围成封闭图形，假如是直边图形，图形面积最大是多少？如果是曲边图形，图形面积最大是多少？</li>
+</ul>
+<h3 id="研究过程"><a href="#研究过程" class="headerlink" title="研究过程"></a>研究过程</h3><ul>
+<li>周长相等的情况下。如果要围成面积最大的直边图形，首先可以确定，正n边形的面积大于其他n边形的面积。直边图形有很多，我按照边数从少到多的顺序依次求图形的面积。</li>
+<li>首先，我求了周长 $40cm$ 的正方形的面积，按照公式 $S &#x3D; a²$ ，$(\frac{40}{4}) \times (\frac{40}{4})&#x3D;100(cm²)$</li>
+<li>我又求了正五边形的面积。我从正五边形的中心点到它的每个顶点分割，把它分成5个完全相等的等腰三角形。我又把每个这样的三角形从它的底边中点作线段到正五边形中心点，再次分割，把每个三角形又分割成2个小三角形，一共有10个这样的小三角形，小三角形的底边长为 $ \frac{40}{10}&#x3D;4(cm)$ 。因为正五边形中心点是一个度数为 $360°$ 的周角，所以每个小三角形靠近正五边形中心点的角的度数是 $36°$ 。三角形的高&#x3D;$\frac{\frac{8}{2} }{\tan 36° } ≈5.5(cm)$，则一个小三角形面积为 $\frac{\frac{8}{2} \times 5.5}{2}&#x3D;11(cm²)$ ，所以正五边形面积≈110(cm²)<br>因为 $110&gt;100$ ，所以，正五边形面积大于正方形面积。我提出猜测：正 $n$ 边形面积大于正 $(n-1)$ 边形面积。</li>
+<li>我推算出了正n边形的面积公式。假如有一个正五边形，我把它按照上面的方法平均分成5个大三角形，再把每个大三角形平均分成两个小三角形。设每个大三角形底边中点到正五边形中心点的距离为 $h$，大三角形的两腰为 $k$，小三角形靠近正五边形中心点的角为 $x$，小三角形底为 $d$。$sin x&#x3D;\frac{d}{r}$，$cos x&#x3D;\frac{h}{r}$，$d&#x3D;sin x \times r$，$h&#x3D;cos x \times r$。一个小三角形面积 $&#x3D;dh$，$&#x3D;n \times cos x \times sin x \times r²$。通过 $sin x&#x3D;\frac{d}{r}$，可知 $r&#x3D;\frac{d}{sin x} $ 。通过$ cos x&#x3D;\frac{h}{r}$ ，可知，$h&#x3D;cos x \times r$，$&#x3D;cos x \times \frac{d}{sin x}$。则小三角形面积为 $d \times cos x \times \frac{\frac{d}{sinx}}{2}  $ ，大三角形面积为 $d \times cos x \times \frac{d}{sin x}$。因为正 $n$ 边形可以分成$n$ 个大三角形，所以正n边形的面积公式是 $S&#x3D;n \times d \times cos x \times \frac{d}{sin x}$。而根据此题，$d&#x3D;40 \div n \div 2 $，$&#x3D;20 \div n$。而 $\frac{20}{n}$ 可以和前面的 $\times n$ 约分，变成 $20$ ，后面的 $d$ 变成$ \frac{20}{n}$ 。所以，此题公式为 $S&#x3D;20\times cosx \times \frac{\frac{20}{n} }{sinx} $ 。我使用此公式再次验算正五边形面积，最后也是 $110cm²$ 。我又算出正六边形面积大约是 $115cm²$ ，正六边形面积大于正五边形面积。</li>
+<li>我根据猜测继续证明。$cos 0°&#x3D;1$，$cos 60°&#x3D;1&#x2F;2$，以此类推……角的度数越大，$cos$ 的值越小。$sin 0°&#x3D;0$，$sin 90°&#x3D;1$，$sin 180°&#x3D;0$，$90°$ 以内，角的度数越大， $sin$ 的值越大。要想让这个图形的面积最大，根据刚才推算的公式$S&#x3D;20\times cosx \times \frac{\frac{20}{n} }{sinx} $，要想让结果最大，$cos x$ 的值作为因数要最大，而 $sin x$ 的值作为分母要最小。如果 $x&#x3D;0°$ ，$cos x&#x3D;1$ ，此时这个图形已经变成了正圆，不符合“直边图形”的题意。如果要面积最大，且是直边图形，$x$ 要无限趋近 $0$ ，但不等于 $0$ ，而<br>$cos x$ 也要无限趋近 $1$ ，但不等于 $1$ 。</li>
+<li>假如这个图形是正 $n$ 边形，则 $n$ 趋近于无限，但不等于无限，所以 $x&#x3D;\frac{360}{n}$，面积是 $ 20\times cos(\frac{180}{n})\times \frac{\frac{20}{n} }{sin(\frac{180}{n} )} $ cm²。</li>
+<li>根据上面得到的结论， $x&#x3D;0°$ 时面积最大，这时这个图形变成了正圆，面积是 $π\times (\frac{40}{2π})²$ 平方厘米，化简得 $(\frac{400}{π})$ 平方厘米。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+        <tag>面积最大问题</tag>
+        <tag>初中</tag>
+      </tags>
+  </entry>
+</search>

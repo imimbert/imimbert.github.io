@@ -1,0 +1,113 @@
+/* 欢迎信息 */
+#welcome-info {
+  background: linear-gradient(45deg, #b9f4f3, #e3fbf9);
+  border-radius: 18px;
+  padding: 8px;
+}
+[data-theme="dark"] #welcome-info {
+  background: #212121;
+}
+
+#recent-posts > .recent-post-item:not(a)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background: linear-gradient(to right, transparent, white, transparent);
+  transform: translateX(-200%);
+  transition: transform 0.5s linear;
+  z-index: 1;
+}
+#recent-posts > .recent-post-item:not(a):hover::before {
+  transform: translateX(100%) skewX(-60deg);
+}
+
+
+body[data-type="todolist"] #web_bg {
+  background: var(--anzhiyu-background);
+}
+body[data-type="todolist"] #page {
+  border: 0;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  background: 0 0 !important;
+}
+body[data-type="todolist"] #page .page-title {
+  display: none;
+}
+
+
+/* Todolist */
+#todolist-box{
+  margin: 0 10px;
+}
+#todolist-main{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 16px 0 10px;
+}
+#todolist-main li{
+  list-style:none;
+  font-size: 17px;
+}
+#todolist-main ul{
+  margin: 0;
+  padding: 0;
+}
+#todolist-left{
+  width: 50%;
+  padding: 0 8px 0 0;
+}
+#todolist-right{
+  width: 50%;
+  padding: 0 0 0 8px;
+}
+.todolist-item{
+  position: relative;
+  background: #fae4df;
+  border-radius: 12px;
+  padding: 10px 1rem 1.2rem;
+  border: 2px dashed #f7a796;
+  margin-bottom: 1rem;
+}
+[data-theme=dark]
+.todolist-item{
+  background: #242424;
+  border: 2px dashed #51908b;
+}
+li.todolist-li i{
+  margin-left: 10px;
+}
+h3.todolist-title{
+  margin: 0!important;
+  border-bottom: var(--todo-border);
+}
+li.todolist-li{
+  border-bottom: var(--todo-border);
+  font-weight: normal;
+  margin-left: -10px;
+}
+li.todolist-li-done{
+  border-bottom: var(--todo-border);
+  font-weight: normal;
+  text-decoration: line-through;
+}
+.todolist-li span{
+  margin-left: 5px;
+}
+.todolist-li-done span{
+  margin-left: 5px;
+}
+@media screen and (max-width:700px){
+  #todolist-left,#todolist-right{
+      width: 100%;
+      padding: 0;
+  }
+}
+  
+

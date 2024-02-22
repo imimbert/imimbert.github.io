@@ -1,0 +1,1 @@
+var posts=["2022/11/10/3-4-5-楼梯悖论/","2022/11/10/【开发日志】- 1 DU/","2023/11/11/面积最大问题/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
